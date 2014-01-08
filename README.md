@@ -148,6 +148,7 @@ Intro to Javascript
 ### Resources
 
   * [Javascript Koans][koans] - try these
+  * [JSFiddle][] - easy experimenting
 
   * [Mozilla Developer Network][MDN] - complete reference
   * [Javascript Cheatsheet][cheatsheet] - quick reference
@@ -160,6 +161,7 @@ Intro to Javascript
 [jsbooks]: http://jsbooks.revolunet.com/
 [garden]: http://bonsaiden.github.io/JavaScript-Garden/
 
+[JSFiddle]: http://jsfiddle.net/
 [isArray]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
 [globfunc]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects#Function_properties
 [fundobj]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects#Fundamental_objects
