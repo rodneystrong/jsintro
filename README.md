@@ -1,7 +1,9 @@
 Intro to Javascript
 ===================
 
-### Week 1
+## Week 1
+
+### Day 1
 
   * What is Javascript?
   * Why should I use Javascript?
@@ -40,7 +42,6 @@ Intro to Javascript
     * Code comments
     * Valid variable names
     * Reserved words
-    * `"use strict"`
 
   * When does the code run?
 
@@ -64,88 +65,128 @@ Intro to Javascript
     * Operator precedence
     * `typeof` comparison
 
-  * Looping code
-    * Using `for` loops
-    * Using `while` and `do/while`
-    * Using `break` and `continue`
-    * `for x in y`
-    * The [`label` identifier][label]
-  
-  * Declaring functions
-    * Declare a simple function
-    * Named functions, assigned to variables
-    * Calling a function
-    * Functions are hoisted
-    * Passing parameters
-    * Return values
-    * Undefined and extra parameters when calling functions
-    * Lexical scoping and `var`
-    * Functions as first-class variables
-    * Referencing functions
-    * Anonymous functions
-    * Functions can be redeclared
-    * Functions can be declared almost anywhere
-  
-  * Arrays
-    * What is an array?
-    * Declaring an array (empty literal)
-    * Setting arrays by index
-    * Reading arrays by index
-    * Arrays are zero-based
-    * Shorthand literal assignment
-    * Longhand declaration
-    * Array property: length
-    * Setting array length by adding higher index
-    * Setting array length by assigning new length
-    * Array methods: reverse, sort
-    * Adding and removing elements: pop, push, shift, unshift
-    * Manipulating elements: slice, splice
-  
-  * Numbers
-    * We've already worked with literal numbers
-    * Number constructor
-    * Numbers in Javascript stored internally as 64-bit floating point
+### Day 2
 
-  * Strings
-    * String constructor
+#### Review Material
 
-  * More arrays
-    * Searching with indexOf
-    * Deleting elements with delete leaves undefined value
-    * Sorting elements
-    * Concatenating two or more arrays
-    * Splitting a string into an array
-    * Joining an array into a string
-    * Mapping, reducing
-    * `typeof` array is object?
-    * `Array.isArray([])` - [may need polyfill][isArray]
+  * Semi-colons and semi-colon insertion, when to omit
+  * Operators (we missed a few)
+  * Expressions
+  * Integers, floats, `parseInt()`, `parseFloat()`, 
+  * Infinity, NaN, undefined (return as simple value)
 
-  * Introducing Objects
-    * What is an object?
-    * Declaring and accessing object properties
-    * Object methods
-    * `instanceof` comparison
-    * Object traversal
-    * The `this` keyword
-    * Standard built-in objects
-    * Infinity, NaN, undefined (return as simple value)
+#### Loops
+
+  * Using `for` loops
+  * Using `while` and `do/while`
+  * Using `break` and `continue`
+  * `for (x in y) { ... }`
+  * The [`label` identifier][label]
+
+##### Activity 1
+
+  * Write a script that counts from 10 to 100 by increments of 5
+  * Output current value to console on each step
+  * Too easy? Find more than one way
+  
+#### Declaring functions
+
+  * Declare a simple function
+  * Named functions
+  * Calling a function
+  * Passing parameters
+  * Return values
+  * Undefined and extra parameters when calling functions
+  * Lexical scoping and `var`
+  * Functions as first-class variables
+  * Referencing functions
+  * Anonymous functions
+  * Functions can be redeclared
+  * Functions can be declared almost anywhere
+  * Functions can call themselves ([recursive example](http://repl.it/N7P))
+  * Functions are hoisted
+
+##### Activity 2
+
+  * Write a function that increments a counter
+  * Outputs "counter value is _x_" to console
+  * Attach to a `<button>` element using onclick="" attribute
+  
+#### Arrays
+
+  * What is an array?
+  * Declaring an array (empty literal)
+  * Setting arrays by index
+  * Reading arrays by index
+  * Arrays are zero-based
+  * Shorthand literal assignment
+  * Longhand declaration
+  * Array property: length
+  * Setting array length by adding higher index
+  * Setting array length by assigning new length
+  * Array methods: reverse, sort
+  * Adding and removing elements: pop, push, shift, unshift
+  * Manipulating elements: slice, splice
+  * Searching with indexOf
+  * Deleting elements with delete leaves undefined value
+  * Sorting elements
+  * Concatenating two or more arrays
+  * Splitting a string into an array
+  * Joining an array into a string
+  * Mapping, reducing
+  * `typeof` array is object?
+  * `Array.isArray([])` - [may need polyfill][isArray]
+
+##### Activity 3
+
+  * Create a button labeled "Ask"
+    * When clicked, prompt for input
+    * Add input value to array
+  * Create a button labeled "Tell"
+    * When clicked, display an alert
+    * Alert value should be string of array elements joined with commas
+  * Too easy?
+    * Add another button to clear the list
+    * Alert with "no items" message if list is empty
+    * Don't allow duplicate values to be added
+
+#### Objects
+
+  * What is an object?
+  * Declaring and accessing object properties
+  * Object methods
+  * `instanceof` comparison
+  * Object traversal
+  * The `this` keyword
+  * Standard built-in objects
   * The Math object
     * Math.max, Math.min, Math.PI
     * Geometric and Trigonometric functions
   * The Date object
     * Getting the current time
     * Printing out parts of the date
+  * Numbers
+    * We've already worked with literal numbers
+    * Number constructor
+    * Numbers in Javascript stored internally as 64-bit floating point
+  * Strings
+    * String constructor
 
-  * The global scope
-    * Global object is `this` in global scope (and is set to `window`)
-    * Resolving references, `window.window`
-    * [Global functions][globfunc] (isNaN(), parseInt(), decodeURIComponent())
-    * [Fundamental objects][fundobj]
+#### Document Object Model (DOM)
 
-  * Document Object Model (DOM)
-    * [Browser object hierarchy][objhier]
+  * What is the DOM?
+    * A collection of objects provided by the browser
+    * Also refers to the structure of elements in document
+  * [Browser object hierarchy][objhier]
 
-### Resources
+#### Global Scope
+
+  * Global object is `this` in global scope (and is set to `window`)
+  * Resolving references, `window.window`
+  * [Global functions][globfunc] (isNaN(), parseInt(), decodeURIComponent())
+  * [Fundamental objects][fundobj]
+
+## Resources
 
   * [Javascript Koans][koans] - try these
   * [JSFiddle][] - easy experimenting
