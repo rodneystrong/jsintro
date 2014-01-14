@@ -200,5 +200,79 @@ if both are in the same scope.
 Even so, in general it is good practice to declare functions prior to using them
 because this aids in readability and reduces confusion.
 
+#### Recursive functions
+
+A function may call itself from within. This type of function is known as a
+*recursive function*.
+
+    // Recursive function example
+    function countdown(x){
+      console.log('value is ' + x--);
+      if (x > 0) countdown(x);
+    }
+
+    // Kick off the function
+    countdown(10);
+
 # Arrays
+
+#### Declare a variable as an array
+
+Arrays can be assigned to a variable using shorthand literal notation.
+
+    var foo = [];
+    var bar = [ 1, 2, 3 ];
+    var baz = [ 'foo', 'bar', 'baz', 'bat', 5, 10, 3 ];
+
+**Note:** each item value in an array can hold any type of value.
+
+#### Assign values by index
+
+In addition to shorthand literal assignment, individual values can be assigned
+using the angle bracket notation below.
+
+    var foo = [];
+    foo[0] = 'foo';
+    foo[1] = 'bar';
+    foo[2] = 'baz';
+
+**Remember:** Arrays in Javascript are *zero-based* which means the first array value
+is always at index 0.
+
+#### Referencing array values
+
+Array indexes can be used to reference individual values:
+
+    myFunction(foo[0],foo[1]);
+    console.log(foo[2]);
+
+#### Getting array length
+
+The `Array.length` property can be used to get the number of elements in an array.
+
+    var foo = [ 1, 2, 'foo', 'bar', 'baz', 'bat', 3, 5 ];
+    console.log(foo.length); // == 8
+
+#### Setting array length
+
+If you assign a numeric value to the `Array.length` property, it will lengthen
+or truncate the array to contain only that many values.
+
+    var foo = [ 1, 2, 3 ];
+    foo.length = 5;
+    
+    console.log(foo);
+    // [ 1, 2, 3, undefined, undefined ]
+
+**Note:** `undefined` values are inserted if the array is lengthened, see above.
+
+Similarly, if you assign a value to an array index larger than the highest
+index in the array, the array will be lengthened and `undefined` values will
+be inserted for the missing values in between.
+
+    var foo = [ 1, 2, 3 ];
+    foo[4] = 'bar';
+    
+    console.log(foo);
+    // [ 1, 2, 3, undefined, "bar" ]
 
