@@ -1,6 +1,6 @@
 # Javascript Cheatsheet
 
-## Variables and Operators
+# Variables and Operators
 
 ### Setting Variables
 
@@ -48,7 +48,7 @@ Logical operators can be used to create AND/OR expressions.
   * `&&` (AND) expression will return final matched value if true
   * `&&` will return first value if false (e.g. `0 && false == 0`)
 
-## Loops
+# Loops
 
 ### `for` loops
 
@@ -99,7 +99,7 @@ An example while loop:
 Inside a loop, `continue` will immediately re-start the loop.
 `break` will break out of the loop.
 
-## Functions
+# Functions
 
 #### Declaring a named function
 
@@ -166,6 +166,9 @@ used just like any other expression.
     
     var y = myFunction(10) + 10;
 
+**Note:** the return value of a function is `null` if it ends without explicitly
+returning a value, or if `return;` is issued without specifying a value.
+
 #### Functions have scope
 
 Variables declared inside a function are local to that function and do
@@ -181,4 +184,21 @@ not alter a variable with the same name in an outer scope. Study the following e
     console.log(myFunction());  // 20
     console.log(y);             // 10
 
+#### Functions are parsed first (hoisted)
+
+The Javascript interpreter scans the current lexical scope for functions first,
+and *hoists* any function declarations to the top of the scope.
+The result is that a function does not need to be declared before it is called,
+if both are in the same scope.
+
+    myFunction();
+    
+    function myFunction() {
+      // ...
+    }
+
+Even so, in general it is good practice to declare functions prior to using them
+because this aids in readability and reduces confusion.
+
+# Arrays
 
