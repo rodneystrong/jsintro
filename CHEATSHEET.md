@@ -100,3 +100,53 @@ Inside a loop, `continue` will immediately re-start the loop.
 `break` will break out of the loop.
 
 ## Functions
+
+#### Declaring a named function
+
+    function myFunction() {
+      // ...
+    }
+
+#### Assigning a function to a variable
+
+    var myFunction = function() {
+      // ...
+    };
+
+**Note:** when assigning an anonymous function to a variable as above, a
+semi-colon should be used as shown, similar to typical variable assignment.
+
+#### Function arguments
+
+    function myFunction(x,y) {
+      // ...
+    }
+
+#### Function return value
+
+A return value from a function is like a "result" of the function when it
+is called. The return value is a single value, so a function call can be
+used just like any other expression.
+
+    function myFunction(x) {
+      return x * 20;
+    }
+    
+    var y = myFunction(10) + 10;
+
+#### Functions have scope
+
+Variables declared inside a function are local to that function and do
+not alter a variable with the same name in an outer scope. Study the following example:
+
+    var y = 10;
+
+    function myFunction() {
+      var y = 20;
+      return y;
+    }
+
+    console.log(myFunction());  // 20
+    console.log(y);             // 10
+
+
