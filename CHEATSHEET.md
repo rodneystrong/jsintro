@@ -103,11 +103,17 @@ Inside a loop, `continue` will immediately re-start the loop.
 
 #### Declaring a named function
 
+A function declaration often includes a function name.
+
     function myFunction() {
       // ...
     }
 
+The name is optional. If the name is omitted, it is an "anonymous" function (see next example).
+
 #### Assigning a function to a variable
+
+In Javascript, a *function* is a first-class variable.
 
     var myFunction = function() {
       // ...
@@ -116,11 +122,37 @@ Inside a loop, `continue` will immediately re-start the loop.
 **Note:** when assigning an anonymous function to a variable as above, a
 semi-colon should be used as shown, similar to typical variable assignment.
 
+#### Calling a function
+
+Functions created using either naming approach above are called the same way:
+
+    myFunction();
+
+This will execute any statements between the curly braces of the function being called.
+
 #### Function arguments
 
     function myFunction(x,y) {
       // ...
     }
+
+#### Calling a function with arguments
+
+To pass arguments to a function, include them when calling the function:
+
+    myFunction(10,20);
+
+**Note:** any arguments that are not specified when calling
+
+#### Function "signature"
+
+The signature of a function consists of it's callable name, and any arguments it takes.
+For the function in the previous example, the signature would be:
+
+    myFunction(x,y)
+
+If we know a function's signature we can call it properly,
+without knowing its internal operation.
 
 #### Function return value
 
