@@ -111,6 +111,8 @@ Intro to Javascript
   * Write a function that increments a counter
   * Outputs "counter value is _x_" to console
   * Attach to a `<button>` element using onclick="" attribute
+
+### Day 3
   
 #### Arrays
 
@@ -137,18 +139,16 @@ Intro to Javascript
   * `typeof` array is object?
   * `Array.isArray([])` - [may need polyfill][isArray]
 
-##### Activity 3
+  * **Activity 3** (in this archive)
 
-  * Create a button labeled "Ask"
-    * When clicked, prompt for input
-    * Add input value to array
-  * Create a button labeled "Tell"
-    * When clicked, display an alert
-    * Alert value should be string of array elements joined with commas
-  * Too easy?
-    * Add another button to clear the list
-    * Alert with "no items" message if list is empty
-    * Don't allow duplicate values to be added
+##### Multi-dimensional arrays
+
+  * Multi-dimensional arrays
+  * [Activity 4](http://repl.it/Ngg)
+
+##### Looping over arrays
+
+  * **Activity 5** (in this archive)
 
 #### Objects
 
