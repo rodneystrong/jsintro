@@ -264,7 +264,7 @@ or truncate the array to contain only that many values.
     console.log(foo);
     // [ 1, 2, 3, undefined, undefined ]
 
-**Note:** `undefined` values are inserted if the array is lengthened, see above.
+**Note:** `undefined` values are inserted if the array is lengthened, as in the example.
 
 Similarly, if you assign a value to an array index larger than the highest
 index in the array, the array will be lengthened and `undefined` values will
@@ -275,4 +275,133 @@ be inserted for the missing values in between.
     
     console.log(foo);
     // [ 1, 2, 3, undefined, "bar" ]
+
+#### Array methods: adding elements
+
+Appending an element to the array is accomplished with the `push()` method:
+
+    var foo = [ 'bar', 'baz' ];
+    foo.push('bat');
+    console.log(foo); // [ 'bar', 'baz', 'bat' ]
+
+Prepend an element with `unshift()` method:
+
+    var foo = [ 'bar', 'baz' ];
+    foo.push('bat');
+    console.log(foo); // [ 'bat', 'bar', 'baz' ]
+
+**Note:** push and unshift methods return the new array length as a numeric value.
+
+#### Array methods: retrieving/removing elements
+
+Remove the first element, and return it, using `shift()` method:
+
+    var foo = [ 'bar', 'baz', 'bat' ];
+    console.log(foo.shift()); // returns 'bar'
+    console.log(foo); // [ 'baz', 'bat' ]
+
+Remove the last element, and return it, using the `pop()` method:
+
+    var foo = [ 'bar', 'baz', 'bat' ];
+    console.log(foo.pop()); // returns 'bat'
+    console.log(foo); // [ 'bar', 'baz' ]
+
+#### Array assignment is by reference
+
+    var foo = [ 'bar', 'baz' ];
+    var bat = foo;
+    
+    bat.push('bat');
+    console.log(foo); // [ 'bar', 'baz', 'bat' ]
+
+If you create an array, and assign that value to more than one variable,
+any changes to the array will affect all references to that array.
+This is because arrays are objects, see below.
+
+#### "Copy" an array using slice() method:
+
+    var foo = [ 'bar', 'baz' ];
+    var bat = foo.slice();
+    
+    bat.push('bat');
+    
+    console.log(foo); // [ 'bar', 'baz' ]
+    console.log(bat); // [ 'bar', 'baz', 'bat' ]
+
+--------
+
+# Objects
+
+#### Comparison to arrays
+
+Objects are complex data types like arrays, however they have different
+uses and behaviors.
+
+  * Arrays have numbered elements, objects have *named keys* (properties)
+  * Array literals use square brackets, object literals use *curly braces*
+  * Array elements maintain their order, object properties do not have order
+  * Both array elements and object properties can be accessed using square brackets
+  * Object properties can also be accessed using a dot notation (see below)
+
+#### Object literals
+
+A simple object literal definition:
+
+    var myObject = { };
+
+The named keys of an object are called properties.
+The literal notation can also be used to define an object with initial properties:
+
+    var fruit = {
+      type: 'apple',
+      color: 'red',
+      quantity: 10
+    };
+
+#### Setting object properties
+
+Most commonly, dot notation is used to refer to an object property:
+
+    fruit.quantity = 10;
+
+Square brackets can also be used:
+
+    fruit['quantity'] = 20;
+
+Unlike variables and function names, object property names *can be* any valid string.
+If the string contains characters that are not valid in variable or function names,
+the square bracket notation must be used. For example:
+
+    fruit['on-hand'] = 5;
+
+Also note that when using the square bracket notation, the value must
+evaluate to a string value. This also allows us to use a variable to refer to 
+the property:
+
+    var key = 'on-hand';
+    fruit[key] = 10;
+
+#### Referencing object properties
+
+Referencing object properties is done in like manner:
+
+    console.log(fruit.color);
+    console.log(fruit['quantity']);
+
+#### Object methods
+
+If a `function` is assigned to an object property, it is called a *method*.
+Methods can access the current object instance using the keyword `this`.
+
+    var fruit = {
+      color: null,
+      setColor: function(color){
+        this.color = color;
+      }
+    };
+
+Using the keyword `this` to refer to the current object *instance* is
+what makes objects powerful. More than just a complex data structure,
+objects can encapsulate functionality that works on the current object.
+
 
