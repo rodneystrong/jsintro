@@ -404,4 +404,87 @@ Using the keyword `this` to refer to the current object *instance* is
 what makes objects powerful. More than just a complex data structure,
 objects can encapsulate functionality that works on the current object.
 
+--------
+
+# Object Constructors
+
+#### Object Constructors are just like functions
+
+    var Point = function(x,y){
+    };
+
+**Note:** Constructor names are conventionally capitalized
+
+#### Constructing an object instance using a constructor
+
+Constructors are called using the keyword `new` and the name of the constructor function:
+
+    var p = new Point(10,10);
+
+This creates an *object instance*.
+
+#### Constructors can access the object via `this`
+
+Most often, constructors set any arguments they receive on the object itself
+for use at a later time. Constructors commonly follow this pattern:
+
+    var Point = function(x,y){
+      this.x = x;
+      this.y = y;
+    };
+
+It may seem repetitive, but it serves an important purpose. It stores the values
+on the object itself. Subsequent code can access these values by referencing
+the object's properties. Any methods of the object can also access these properties.
+
+#### Prototype methods
+
+Methods can be associated with object instances created from a constructor by
+adding functions to the constructor's prototype as here:
+
+    Point.prototype.movePoint = function(ox,oy){
+      this.x += ox;
+      this.y += oy;
+    };
+
+#### Putting it all together
+
+    var Point = function(x,y){
+      this.x = x;
+      this.y = y;
+    };
+    
+    Point.prototype.movePoint = function(ox,oy){
+      this.x += ox;
+      this.y += oy;
+    };
+    
+    var p = new Point(10,10);
+    p.movePoint(10,-10);
+    console.log(p.x); // == 20
+    console.log(p.y); // == 0
+
+This example defines a constructor named `Point`, constructs an object instance
+of `Point` into the variable `p`, and calls its `movePoint()` method.
+
+#### `.toString()` method
+
+If an object instance has a `toString()` method, this method will be used to
+convert the object into a string representation, in the case of *casting* the
+object into a string.
+
+    var Point = function(x,y){
+      this.x = x;
+      this.y = y;
+    };
+
+    Point.prototype.toString = function(){
+      return '[Point: ' + this.x + ', ' + this.y + ']';
+    };
+    
+    var p = new Point(15,5);
+    alert(p); // "[Point: 15,5]"
+    console.log('Case object as string: ' + p);
+
+**Note:** the toString() method is expected to *return* a value using `return`
 
