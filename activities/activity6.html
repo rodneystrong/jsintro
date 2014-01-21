@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Javascript - Activity 6</title>
+  <meta name="description" content="Activity 6">
+  <meta name="author" content="Bitwise">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/cards.css">
+
+  <script src="./js/underscore.js" type="text/javascript"></script>
+  <script type="text/javascript">
+
+    var suits = ['Hearts', 'Spades', 'Clubs', 'Diamonds'];
+    var cards = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'];
+    var deck = []; // fill with "deck of cards"
+
+    // STEP 1: WRITE A CONSTRUCTOR FUNCTION HERE
+    // Create a constructor for an object named "Card"
+    // It should take two arguments: suit, and rank
+
+    for (var suit = 0; suit < suits.length; suit++) {
+      //console.log('Generating suit: ' + suits[suit]);
+
+      for (var card = 0; card < cards.length; card++) {
+        //console.log('Generating card: ' + cards[card]);
+
+        // STEP 2: PUSH CARD INSTANCES ONTO DECK
+        // Use the constructor function you wrote above
+        // Change the value pushed onto the deck below
+        // from an anonymous object, to a "new Card" instance
+        deck.push({
+          rank: cards[card],
+          suit: suits[suit]
+        });
+      }
+    }
+
+    // Use _.shuffle(array) method from underscore library
+    // to shuffle the deck array - the method *returns*
+    // a shuffled array, so we assign it back to deck
+    deck = _.shuffle(deck);
+
+    // Let's take a look at our shuffled deck:
+    console.log(deck);
+
+    // Button Handler - takes card off the front of the deck
+    // using Array.shift() and displays it with an alert
+    function alertCard(){
+      var c = deck.shift();
+      alert(c.rank + ' of ' + c.suit);
+    }
+
+  </script>
+
+</head>
+
+<body>
+
+	<h1>Generate a Deck of Cards, Shuffle, and Deal</h1>
+
+  <button onclick="alertCard();">Deal Card</button>
+
+  <ul class="cardtray">
+    <li>
+      <div class="card red"></div>
+    </li>
+  </ul>
+
+  <hr />
+  <div class="instructions">
+    <h3>Activity 6a</h2>
+    <ol>
+      <li>Rewrite "Card" as object constructor</li>
+      <li>The object constructor should take two values: suit, and rank</li>
+      <li>The object constructor should store those values on object instance</li>
+      <li>Update loop to use <code>new Card(suit,rank)</code> instead of anonymous object</li>
+    </ol>
+
+    <h3>Activity 6b</h2>
+    <ol>
+      <li>Write a method for "Card" that returns the card <i>name</i></li>
+      <li>Cards are named e.g. "2 of Hearts" or "King of Diamonds"</li>
+      <li>Method should return the name of the card it represents</li>
+      <li>Update <code>alertCard()</code> function to alert using method</li>
+    </ol>
+
+    <h3>Activity 6c</h2>
+    <ol>
+      <li>Rewrite "Deck" as object constructor</li>
+      <li>The constructor should create one property, <code>cards</code> (an array)</li>
+    </ol>
+
+    <h3>Activity 6d</h2>
+    <ol>
+      <li>Create the following methods for "Deck" object:</li>
+      <li><b>.addCard(card)</b> - add a Card object onto the stack</li>
+      <li><b>.shuffle()</b> - shuffle cards currently in the deck</li>
+      <li><b>.dealCard()</b> - remove the first Card from deck, and return it</li>
+    </ol>
+
+    <h3>Activity 6e</h2>
+    <ol>
+      <li>Add a new method to Deck object:
+      <li><b>.generate()</b> - generate a standard deck of playing cards</li>
+      <li>Migrate existing "deck" code into <code>.generate()</code> method</li>
+      <li>Construct a new Deck instance (using <code>new Deck</code>)</li>
+      <li>Update <code>alertCard()</code></li>
+    </ol>
+
+    <h3>Activity 6f</h2>
+    <ol>
+      <li>Rewrite the <code>alertCard()</code> button handler function</li>
+      <li>When the button is clicked, update the class of the onscreen card</li>
+      <li>See following table for example of proper className values</li>
+      <li>Notice that strings (e.g. 'Hearts') will need to be lowercased</li>
+    </ol>
+
+    <h4>Name and CSS class correspondence</h4>
+    <table class="values">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Suit</th>
+          <th>Name</th>
+          <th>CSS Class</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>'Ace'</td>
+          <td>'Hearts'</td>
+          <td>'Ace of Hearts'</td>
+          <td>'card hearts cardace'</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>'Diamonds'</td>
+          <td>'2 of Diamonds'</td>
+          <td>'card diamonds card2'</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Activity 6g</h2>
+    <ol>
+      <li>Add a method to the Card object called <code>getClassName()</code></li>
+      <li>Method should return a class name that matches the CSS selector</li>
+      <li>Update <code>alertCard()</code> handler to get className from object method</li>
+    </ol>
+
+  </div>
+
+</body>
+</html>

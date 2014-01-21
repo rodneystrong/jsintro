@@ -4,3 +4,7 @@ body {
 
 hr { margin-top: 2em; }
 .instructions { color: #676767; }
+
+thead th { text-align: left; }
+table.values { min-width: 50em; }
+table.values td { font-family: monospace; }
