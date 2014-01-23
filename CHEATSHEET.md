@@ -1,5 +1,13 @@
 # Javascript Cheatsheet
 
+  * [Variables and Operators](#variables-and-operators)
+  * [Loops](#loops)
+  * [Functions](#functions)
+  * [Arrays](#arrays)
+  * [Objects](#objects)
+  * [Object Constructors](#object-constructors)
+  * [DOM Operations](#dom-operations)
+
 # Variables and Operators
 
 ### Setting Variables
