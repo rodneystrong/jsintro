@@ -488,3 +488,66 @@ object into a string.
 
 **Note:** the toString() method is expected to *return* a value using `return`
 
+---------
+
+# DOM operations
+
+#### Reference (or "grab") an existing DOM element
+
+    var el = document.getElementById('my-element-id');
+
+**Note:** The element must already exist in the document's HTML code,
+and it must have an `id=""` attribute that matches the parameter passed
+to `document.getElementById()`.
+
+#### Get or set an element's CSS class(es)
+
+All `HTMLElement` objects have a property called `className`. This property
+contains the current CSS class(es), and can be assigned to change the class(es).
+
+    var el = document.getElementById("my-element-id");
+    console.log(el.className); // == "class1 class2"
+    el.className = "class3";
+
+#### Get an element's inner HTML
+
+All `HTMLElement` objects have a property called `innerHTML`. This property
+contains the raw HTML code that exists within the element.
+
+    var el = document.getElementById("my-element-id");
+    console.log(el.innerHTML);
+
+#### Set an element's inner HTML
+
+Assign new HTML code to an element's `innerHTML` property, to set its content.
+
+    var el = document.getElementById("my-element-id");
+    el.innerHTML = '<div>Hello World!</div>';
+
+**Note:** values set with innerHTML should be *valid HTML content* for the
+element. Valid HTML content might be text, other elements, and so on.
+
+#### Create a new element
+
+An HTML element can be created ("in memory").
+
+    var my_div = document.createElement("div");
+
+This element can be manipulated as any other element
+(e.g. set className, or innerHTML), even though it doesn't exist
+*in* our document yet.
+
+#### Append an element to another element
+
+An element can be appended to any other element using the `appendChild(element)`
+method. Again, the resulting HTML should be valid (for example, do not append a
+`<li>` onto an element that is not a list).
+
+    var container = document.getElementById("my-element-id");
+    var my_div = document.createElement("div");
+    
+    container.appendChild(my_div);
+
+**Note:** An individual element object can only exist in one place in the DOM.
+If you append an element in the DOM to another location, *it will be moved* there.
+
