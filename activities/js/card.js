@@ -2,7 +2,7 @@
 
 Card Interface Specification:
 
-new Card()
+new Card(suit,rank)
 .getSuit() -> return the "suit"
 .getRank() -> return the "rank" (note: as a string)
 .toString() -> return the card name as a string, e.g. "2 of Hearts"
@@ -21,22 +21,22 @@ var Card = function(suit,rank) {
 
 // Return the card suit
 Card.prototype.getSuit = function() {
-  // @TODO: complete this method
+  return this.suit;
 };
 
 // The card can return its rank as a string
 Card.prototype.getRank = function() {
-  // @TODO: complete this method
+  return this.rank.toString();
 };
 
 // The card can return its "name" as a string
 Card.prototype.toString = function() {
-  return this.rank + ' of ' + this.suit;
+  return this.getRank() + ' of ' + this.getSuit();
 };
 
 // The card can return its "class" value, for HTML
 Card.prototype.getClassName = function() {
-  return 'card ' + this.suit.toLowerCase() +
-    ' card' + ('' + this.rank).toLowerCase();
+  return 'card ' + this.getSuit().toLowerCase() +
+    ' card' + this.getRank().toLowerCase();
 };
 
