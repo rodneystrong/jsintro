@@ -80,6 +80,9 @@ Deck.prototype.shuffle = function(){
 //      var cards = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'];
 
 Deck.prototype.generate = function(){
+    var suits = ['Hearts', 'Spades', 'Clubs', 'Diamonds'];
+    var cards = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'];
+
     for (var suit = 0; suit < suits.length; suit++) {
       for (var card = 0; card < cards.length; card++) {
         this.addCard(new Card(suits[suit], cards[card]));
