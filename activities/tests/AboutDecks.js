@@ -5,14 +5,16 @@ describe("About Deck objects", function() {
   });
 
   it("should have no cards to start", function(){
-    expect(deck.count()).toBe(0);
+    expect(deck.cards.length).toBe(0);
   });
 
   it("should support adding cards and knowing length", function(){
+    expect(deck.cards.length).toBe(0);
     expect(deck.count()).toBe(0);
 
     deck.addCard(new Card('Hearts',2));
 
+    expect(deck.cards.length).toBe(1);
     expect(deck.count()).toBe(1);
   });
 
@@ -33,23 +35,28 @@ describe("About Deck objects", function() {
     expect(deck.count()).toBe(0);
 
     deck.addCard(new Card('Hearts',2));
-    deck.generate();
+    deck.addCard(new Card('Diamonds','Ace'));
+
     var card = deck.dealCard();
 
-    expect(card.rank).toBe(2);
-    expect(card.suit).toBe('Hearts');
+    expect(card.getRank()).toBe("Ace");
+    expect(card.getSuit()).toBe("Diamonds");
   });
 
-  it("should deal the top card", function(){
+  it("should be chainable for generate()",function(){
+    expect(deck.generate() === deck).toBe(true);
+  });
 
-    deck.addCard(new Card('Hearts',2));
-    deck.generate();
+  it("should be chainable for shuffle()",function(){
+    expect(deck.generate().shuffle() === deck).toBe(true);
+  });
 
-    var card = deck.dealCard();
+  it("should be chainable for reset()",function(){
+    expect(deck.reset() === deck).toBe(true);
+  });
 
-    expect(card.getRank()).toBe("2");
-    expect(card.getSuit()).toBe("Hearts");
-
+  it("should be chainable for addCard()",function(){
+    expect(deck.addCard(new Card('Hearts',2)) === deck).toBe(true);
   });
 
 });
