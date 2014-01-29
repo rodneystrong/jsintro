@@ -66,21 +66,28 @@
 .card.red.joker { background-position: -757px -435px; }
 
 ul.cardtray {
+  min-height: 106px;
   position: relative;
   list-style-type: none; margin: 8px 0; padding: 0;
 }
+
 ul.cardtray li {
-  display: inline;
+  display: inline-block;
   list-style-type: none;
   width: 72px;
   height: 96px;
+  margin: 0;
   margin: 0 4px 6px 0;
   padding: 0;
 }
-ul.cardtray div {
-  display: inline-block;
-  width: 72px;
-  height: 96px;
+
+.cardtray.compact {
+  margin-left: 40px;
+}
+
+.cardtray.compact li {
+  margin-left: -40px;
+  z-index: 1;
 }
 
 .card {
@@ -88,7 +95,8 @@ ul.cardtray div {
   -webkit-transition: -webkit-transform 200ms;
   -moz-transition: -moz-transform 200ms;
 }
-.card:hover, .tilted {
+
+.card.playable:hover, .tilted {
   transform: rotate(6deg) scale(1.05);
   -webkit-transform: rotate(2deg) scale(1.05);
   -moz-transform: rotate(2deg) scale(1.05);
@@ -98,11 +106,35 @@ ul.cardtray div {
   -moz-transition: -moz-transform 200ms;
 }
 
-.placeholder {
-  background-image: none;
-  background-color: white;
-}
-
 .floating {
   position: absolute;
 }
+
+.no-selections {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.cardtray.player-hand .card {
+  -webkit-filter: brightness(100%) grayscale(50%) contrast(35%) saturate(300%) sepia(64%);
+  -moz-filter: brightness(100%) grayscale(50%) contrast(35%) saturate(300%) sepia(64%);
+  -webkit-transition: -webkit-filter 200ms;
+  -moz-transition: opacity 200ms;
+  opacity: 0.6;
+}
+
+.cardtray .card.playable {
+  -webkit-filter: none;
+  opacity: 1;
+}
+
+.placeholder {
+  background-image: none;
+  background-color: white;
+  -webkit-filter: none !important;
+}
+
