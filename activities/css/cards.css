@@ -81,15 +81,6 @@ ul.cardtray li {
   padding: 0;
 }
 
-.cardtray.compact {
-  margin-left: 40px;
-}
-
-.cardtray.compact li {
-  margin-left: -40px;
-  z-index: 1;
-}
-
 .card {
   transition: transform 200ms;
   -webkit-transition: -webkit-transform 200ms;

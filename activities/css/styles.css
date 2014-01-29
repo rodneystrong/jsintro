@@ -8,3 +8,5 @@ hr { margin-top: 2em; }
 thead th { text-align: left; }
 table.values { min-width: 50em; }
 table.values td { font-family: monospace; }
+
+#myhand { border: 1px #ccc solid; }
